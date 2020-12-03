@@ -5,6 +5,7 @@ export const VoiceContext = createContext();
 export const VoiceProvider = ({ children }) => {
   const [result, setResult] = useState(null);
   const [inputs, setInputs] = useState([]);
+  const [ref, setRef] = useState(null);
   const [transcript, setTranscript] = useState("");
 
   const SpeechRecognition =
@@ -32,12 +33,16 @@ export const VoiceProvider = ({ children }) => {
     if (transcript.includes("set") && matchedWord) {
       setResult({ [matchedWord[0]]: transcript.split(matchedWord)[1] });
     }
+    if (transcript.includes("submit") && matchedWord) {
+      ref.current.click()
+    }
   }, [transcript]);
   return (
     <VoiceContext.Provider
       value={{
         result,
         setInputs,
+        setRef
       }}
     >
       {children}

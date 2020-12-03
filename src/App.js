@@ -1,6 +1,6 @@
 import { Typography, Box } from "@material-ui/core";
 import { VoiceProvider } from "./VoiceController";
-import VoiceForm from "./VoiceForm";
+import FormikForm from "./FormikForm";
 function App() {
   return (
     <Box
@@ -14,7 +14,7 @@ function App() {
         To set value say "set username [value] and set password [value]"
       </Typography>
       <VoiceProvider>
-        <VoiceForm />
+        <FormikForm />
       </VoiceProvider>
     </Box>
   );
