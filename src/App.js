@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Typography, Box } from "@material-ui/core";
+import { VoiceProvider } from "./VoiceController";
+import VoiceForm from "./VoiceForm";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box display="flex" style={{textAlign: "center"}} flexDirection="column" height="100%" justifyContent="center">
+    <Typography  variant="h4" component="h1">
+        To set value say "set username [value] and set password [value]"
+      </Typography>
+      <VoiceProvider>
+        <VoiceForm />
+      </VoiceProvider>
+    </Box>
   );
 }
 
